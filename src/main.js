@@ -1,3 +1,5 @@
+let tie = true;
+
 const board = GameBoard();
 
 const players = [];
@@ -92,10 +94,12 @@ const GameFlow = (function () {
     wPatterns.forEach((pattern) => {
       if (pattern.every((i) => player1Positions.includes(i))) {
         handleWinner({ winner: players[0], pattern });
+        tie = false;
       }
 
       if (pattern.every((i) => player2Positions.includes(i))) {
         handleWinner({ winner: players[1], pattern });
+        tie = false;
       }
     });
   }
@@ -135,12 +139,23 @@ function handleRestart() {
   renderBoard(board.board);
   GameFlow.resetPlayersPositions();
   GameFlow.turnToTrue();
+  tie = true;
+}
+
+function handleTie(board) {
+  setTimeout(() => {
+    if (board.every((i) => i !== 0) && tie) {
+      alert("It's a tie!");
+      handleRestart();
+    }
+  }, 100);
 }
 
 game.addEventListener("click", (event) => {
   GameFlow.handleMark(Array.from(game.children).indexOf(event.target));
   renderBoard(board.board);
   GameFlow.checkWinner();
+  handleTie(board.board);
 });
 
 init();
