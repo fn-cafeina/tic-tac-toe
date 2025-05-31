@@ -1,0 +1,144 @@
+:root {
+  --primary: #1f1f1f;
+  --secondary: #1a1919;
+  --border: #414040;
+  --ic-col: #8a8a8a;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(--primary);
+  width: 100vw;
+  height: 100dvh;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+dialog {
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--secondary);
+  color: #fff;
+  user-select: none;
+}
+
+dialog::backdrop {
+  backdrop-filter: blur(2px);
+  background-color: #000000cc;
+}
+
+dialog > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 42px;
+}
+
+dialog > form > div {
+  display: flex;
+  gap: 20px;
+}
+
+dialog > form > div > div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+dialog > form > div > div > input {
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: transparent;
+  padding: 4px;
+  color: #fff;
+  text-align: center;
+}
+
+dialog > form > p {
+  font-size: 1.5rem;
+}
+
+dialog > form > button {
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  background-color: var(--secondary);
+  padding: 4px 10px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+dialog > form > button:hover {
+  opacity: 0.8;
+}
+
+.game {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  background-color: var(--secondary);
+  padding: 20px;
+  width: 400px;
+  height: 450px;
+}
+
+.game > div {
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border: 1px solid #4140405e;
+}
+
+.game > div > span {
+  position: absolute;
+  color: var(--ic-col);
+  font-weight: 100;
+  font-size: 4rem;
+  user-select: none;
+}
+
+.game > div:nth-child(1) {
+  border-top: none;
+  border-left: none;
+}
+
+.game > div:nth-child(2) {
+  border-top: none;
+}
+
+.game > div:nth-child(3) {
+  border-top: none;
+  border-right: none;
+}
+
+.game > div:nth-child(4) {
+  border-left: none;
+}
+
+.game > div:nth-child(6) {
+  border-right: none;
+}
+
+.game > div:nth-child(7) {
+  border-bottom: none;
+  border-left: none;
+}
+
+.game > div:nth-child(8) {
+  border-bottom: none;
+}
+
+.game > div:nth-child(9) {
+  border-right: none;
+  border-bottom: none;
+}
